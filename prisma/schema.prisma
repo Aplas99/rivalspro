@@ -10,11 +10,56 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Player {
+  id        String   @id @default(uuid())
+  name      String
+  platform  Int
+  stats     PlayerStats? @relation(fields: [statsid], references: [id])
+  statsid String?
+}
 
-    @@index([name])
+model PlayerStats {
+  id        String   @id @default(uuid())
+  playerId  String   @unique
+  matches   Int
+  wins      Int
+  losses    Int
+  kda       Float
+  damagePM  Float
+  healingPM Float
+
+  Player Player[]
+}
+
+model Hero {
+  id          String @id @default(uuid())
+  name        String
+  teamups     Int
+  winrate     Float
+  stats       HeroStats[]
+}
+
+model HeroStats {
+  id         String @id @default(uuid())
+  heroId     String
+  damagePM   Float
+  healingPM  Float
+  deaths     Int
+  assists    Int
+  playtime   Int
+
+  Hero Hero[]
+}
+
+model Leaderboard {
+  id       String @id @default(uuid())
+  playerId String
+  rank     Int
+  device   Int
+}
+
+model RankDistribution {
+  id      String @id @default(uuid())
+  rank    String
+  playerCount Int
 }

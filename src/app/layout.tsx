@@ -19,12 +19,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="flex bg-black text-white">
+      <body>
         {/* Sidebar */}
-        <Sidebar />
+        {/* <Sidebar /> */}
 
         {/* Main Content Area */}
-        <div className="flex-1">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );
