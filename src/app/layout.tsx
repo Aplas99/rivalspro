@@ -1,7 +1,8 @@
 import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import Sidebar from "~/components/app-sidebar/sidebar"; // Import your custom TailwindCSS sidebar component
+import AppSidebar from "~/components/app-sidebar/sidebar";
+import { SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar";
 
 export const metadata: Metadata = {
   title: "RivalsPro",
@@ -19,12 +20,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
-        {/* Sidebar */}
-        {/* <Sidebar /> */}
-
-        {/* Main Content Area */}
-        <div>{children}</div>
+      <body className="bg-slate-900">
+        <SidebarProvider>
+          <div className="flex">
+            <AppSidebar />
+            <main className="flex-1">
+              <SidebarTrigger />
+              {children}
+            </main>
+          </div>
+        </SidebarProvider>
       </body>
     </html>
   );

@@ -1,8 +1,18 @@
-import { Medal, Sparkle, Webhook } from "lucide-react";
+import React from "react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+} from "~/components/ui/sidebar";
 import Link from "next/link";
-import { Separator } from "../ui/separator";
+import { Medal, Sparkle, Webhook, Home } from "lucide-react";
 
 const menuItems = [
+  {
+    name: "Home",
+    url: "/",
+    icon: Home,
+  },
   {
     name: "Leaderboard",
     url: "/leaderboard",
@@ -17,34 +27,24 @@ const menuItems = [
 
 export default function AppSidebar() {
   return (
-    <div className="group relative h-screen bg-zinc-800 w-20 transition-all duration-300 hover:w-64">
-      {/* Sidebar Header */}
-      <div className="flex items-center p-6">
-        <Webhook className="h-6 w-6 text-white" />
-        <span className="p-2 text-2xl opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-          <Link href="/" className="hover:cursor-pointer">
-            Rivals Pro
-          </Link>
-        </span>
-      </div>
-
-      <Separator className="border-b border-gray-700" />
-
-      {/* Sidebar Menu */}
-      <ul className="space-y-2 p-2">
+    <Sidebar className="flex w-40 flex-col items-center justify-between">
+      <SidebarContent className="flex flex-col items-center gap-10 pt-5">
         {menuItems.map((item) => (
-          <Link
+          <div
             key={item.name}
-            href={item.url}
-            className="flex items-center gap-4 rounded-lg p-4 transition-all duration-300 ease-in-out hover:bg-gray-700"
+            className="flex flex-col items-center py-5 hover:cursor-pointer"
           >
-            <item.icon className="h-6 w-6" />
-            <span className="opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-              {item.name}
-            </span>
-          </Link>
+            <Link href={item.url}>
+              <item.icon className="h-6 w-6 text-black" />
+            </Link>
+            <span className="mt-2 text-center">{item.name}</span>
+          </div>
         ))}
-      </ul>
-    </div>
+      </SidebarContent>
+
+      <SidebarFooter>
+        <h1>Footer</h1>
+      </SidebarFooter>
+    </Sidebar>
   );
 }
