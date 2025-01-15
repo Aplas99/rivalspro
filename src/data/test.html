@@ -1,0 +1,161 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      /* Custom glow effects */
+      .neon-blue {
+        text-shadow:
+          0 0 8px #00faff,
+          0 0 16px #00faff,
+          0 0 24px #00faff;
+      }
+      .neon-green {
+        text-shadow:
+          0 0 8px #00ff87,
+          0 0 16px #00ff87,
+          0 0 24px #00ff87;
+      }
+      .neon-red {
+        text-shadow:
+          0 0 8px #ff004f,
+          0 0 16px #ff004f,
+          0 0 24px #ff004f;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 font-sans text-white">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between bg-gray-800 px-6 py-4">
+      <div class="neon-blue text-xl font-bold">SUPER LOTTO</div>
+      <div class="flex items-center space-x-4">
+        <button class="rounded bg-gray-700 px-3 py-2">ENG</button>
+        <div class="flex items-center space-x-2">
+          <span class="text-sm">Honor: 1,340</span>
+          <img
+            src="https://placehold.co/32x32"
+            alt="User profile"
+            class="h-8 w-8 rounded-full border-2 border-blue-500"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside class="flex w-20 flex-col items-center space-y-4 bg-gray-800 py-4">
+        <button class="text-gray-400 hover:text-blue-400">
+          <i class="fas fa-home text-xl"></i>
+        </button>
+        <button class="text-gray-400 hover:text-blue-400">
+          <i class="fas fa-trophy text-xl"></i>
+        </button>
+        <button class="text-gray-400 hover:text-blue-400">
+          <i class="fas fa-cog text-xl"></i>
+        </button>
+        <button class="text-gray-400 hover:text-blue-400">
+          <i class="fas fa-info-circle text-xl"></i>
+        </button>
+      </aside>
+
+      <!-- Content -->
+      <main class="flex-1 px-8 py-6">
+        <!-- Leaderboard -->
+        <section class="text-center">
+          <h2 class="neon-blue mb-4 text-2xl font-bold">Leaderboard</h2>
+          <div class="flex justify-center space-x-8">
+            <!-- Player 1 -->
+            <div class="text-center">
+              <img
+                src="https://placehold.co/100x100"
+                alt="Player 1 avatar"
+                class="mx-auto h-24 w-24 rounded-full border-4 border-red-500"
+              />
+              <h3 class="neon-red mt-2 text-lg">Vadomand</h3>
+              <p class="text-sm">Number #1</p>
+              <div class="mt-3 rounded bg-gray-800 p-3">
+                <p>$520</p>
+                <p class="neon-red">1744 pts</p>
+              </div>
+            </div>
+
+            <!-- Player 2 -->
+            <div class="text-center">
+              <img
+                src="https://placehold.co/100x100"
+                alt="Player 2 avatar"
+                class="mx-auto h-24 w-24 rounded-full border-4 border-blue-500"
+              />
+              <h3 class="neon-blue mt-2 text-lg">Halid_Morder</h3>
+              <p class="text-sm">Number #2</p>
+              <div class="mt-3 rounded bg-gray-800 p-3">
+                <p>$370</p>
+                <p class="neon-blue">837 pts</p>
+              </div>
+            </div>
+
+            <!-- Player 3 -->
+            <div class="text-center">
+              <img
+                src="https://placehold.co/100x100"
+                alt="Player 3 avatar"
+                class="mx-auto h-24 w-24 rounded-full border-4 border-green-500"
+              />
+              <h3 class="neon-green mt-2 text-lg">Khalid_Solo</h3>
+              <p class="text-sm">Number #3</p>
+              <div class="mt-3 rounded bg-gray-800 p-3">
+                <p>$102</p>
+                <p class="neon-green">377 pts</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Live Feed -->
+        <section class="mt-8">
+          <h2 class="mb-4 text-xl font-bold">Live Feed</h2>
+          <div
+            class="grid grid-cols-2 gap-4 rounded bg-gray-800 p-4 md:grid-cols-4"
+          >
+            <!-- Feed Item -->
+            <div class="text-center">
+              <img
+                src="https://placehold.co/50x50"
+                alt="Live feed avatar"
+                class="mx-auto h-12 w-12 rounded-full border-2 border-blue-500"
+              />
+              <p class="mt-2">$320</p>
+              <p class="text-sm text-gray-400">Last 20 mins</p>
+            </div>
+            <!-- More Feed Items -->
+            <div class="text-center">
+              <img
+                src="https://placehold.co/50x50"
+                alt="Live feed avatar"
+                class="mx-auto h-12 w-12 rounded-full border-2 border-blue-500"
+              />
+              <p class="mt-2">$770</p>
+              <p class="text-sm text-gray-400">Last 5 mins</p>
+            </div>
+            <div class="text-center">
+              <img
+                src="https://placehold.co/50x50"
+                alt="Live feed avatar"
+                class="mx-auto h-12 w-12 rounded-full border-2 border-blue-500"
+              />
+              <p class="mt-2">$450</p>
+              <p class="text-sm text-gray-400">Last 10 mins</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
