@@ -20,11 +20,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="bg-slate-900">
+      <body className="bg-blue-950">
         <SidebarProvider>
           <div className="flex">
             <AppSidebar />
-            <main className="flex-1">
+            <main className="flex-col">
               <SidebarTrigger />
               {children}
             </main>

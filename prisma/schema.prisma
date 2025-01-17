@@ -52,11 +52,20 @@ model HeroStats {
 }
 
 model Leaderboard {
-  id       String @id @default(uuid())
-  playerId String
-  rank     Int
-  device   Int
+  id             String  @id @default(uuid()) // Unique identifier for each entry
+  playerId       String  // The player's unique ID (uid from the response)
+  playerName     String  // The player's name (name from the response)
+  device         Int     // The device number (device from the response)
+  rankLevel      Int     // The player's rank level (rank.level from the response)
+  rankScore      Float   // The player's rank score (rank.rank_score from the response)
+  battleCount    Int     // Total battles played by the player (rank.battle_count from the response)
+  winCount       Int     // Total wins by the player (rank.win_count from the response)
+  curHeadIconId  String  // The player's current head icon ID (cur_head_icon_id from the response)
+  score          Int     // The player's score (score from the response)
+  season         Int     // The season number (season from the response)
+  fetchedAt      DateTime @default(now()) // Timestamp when the data was fetched
 }
+
 
 model RankDistribution {
   id      String @id @default(uuid())
